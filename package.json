@@ -1,0 +1,59 @@
+{
+	"name": "@orkait/mail",
+	"version": "1.0.0",
+	"description": "",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"type": "module",
+	"files": [
+		"/dist"
+	],
+	"scripts": {
+		"lint": "eslint src --ext .ts",
+		"prepublishOnly": "npm run compile && np --no-cleanup --no-tests --no-publish",
+		"ts-types": "tsc --emitDeclarationOnly --outDir dist",
+		"build": "rm -rf dist && etsc && npm run ts-types",
+		"test": "npm run lint && npm run build",
+		"compile": "npm run build",
+		"release": "np --no-yarn --no-tests --no-cleanup --no-publish",
+		"dev": "nodemon"
+	},
+	"engines": {
+		"node": "^12.17.0 || ^14.13 || >=16.0.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/orkait/orka-mail.git"
+	},
+	"keywords": [
+		"mail",
+		"sendinblue",
+		"templates"
+	],
+	"author": "KailasMahavarkar",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/orkait/orka-mail/issues"
+	},
+	"homepage": "https://github.com/orkait/orka-mail#readme",
+	"np": {
+		"yarn": false
+	},
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org"
+	},
+	"dependencies": {
+		"@sendinblue/client": "^3.2.2",
+		"ajv": "^8.11.2",
+		"dotenv": "^16.4.5",
+		"sib-api-v3-sdk": "^8.4.2",
+		"sib-api-v3-typescript": "^2.2.2",
+		"typescript": "^5.4.3"
+	},
+	"devDependencies": {
+		"@types/node": "^18.11.17",
+		"etsc": "^0.1.0",
+		"tsx": "^4.7.1"
+	}
+}
